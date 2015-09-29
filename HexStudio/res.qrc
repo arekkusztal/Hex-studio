@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/newFile.png</file>
+        <file>res/new_1.png</file>
+        <file>res/load_1.png</file>
+        <file>res/save_1.png</file>
+        <file>res/saveAll_1.png</file>
+        <file>res/find_1.png</file>
+        <file>res/rep_1.png</file>
+        <file>res/selectAll_1.png</file>
+        <file>res/closeAll_1.png</file>
+        <file>res/close_1.png</file>
+        <file>res/undo_1.png</file>
+        <file>res/redo_1.png</file>
+        <file>res/paste_1.png</file>
+        <file>res/cut_1.png</file>
+        <file>res/copy_1.png</file>
+    </qresource>
+</RCC>
