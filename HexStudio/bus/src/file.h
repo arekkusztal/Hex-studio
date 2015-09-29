@@ -6,9 +6,9 @@
 class File
 {
 public:
-    int  *flen;
+    int  flen;
     char *fname;
-    byte *fcontent;
+    char *fcontent;
 
 
     File();
