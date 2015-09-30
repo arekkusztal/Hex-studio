@@ -5,6 +5,8 @@
 
 
 extern int len;
+
+extern int *flen_p;
 ///
 /// \brief How much vertically file was shifted, can't be bigger than |-len-| and should have been multiply of cols
 ///
@@ -43,6 +45,7 @@ int selectedByte    = -1;
 int current         = -1;
 
 extern unsigned char hexSrc[1024];
+extern char *hexSource_p;
 
 int cols = 32;
 
@@ -91,7 +94,8 @@ void QHexTable::paintEvent(QPaintEvent *)
    // pen.drawText(8,28, sHex.rightJustified(2,'0') );
 
     QString sHex;
-    unsigned char *hexIterator = hexSrc;
+    ///Podmiana src
+    unsigned char *hexIterator = (unsigned char*)hexSource_p; // hexSrc;
     int ecx = 0;
     bool colorFlag = 0;
 
@@ -103,7 +107,7 @@ void QHexTable::paintEvent(QPaintEvent *)
     {
         for (int j=0;j<cols;++j)
         {
-            if (++ecx > len - shift)
+            if (++ecx > *flen_p - shift)
                 break;
 
             sHex = QString::number(*hexIterator++, 16).toUpper();
@@ -187,12 +191,19 @@ void QHexTable::keyPressEvent(QKeyEvent *event)
         return;
     }
 
-    QString sHex = QString::number(hexSrc[current], 16).toUpper();
+    /// podmiana src
+    //QString sHex = QString::number(hexSrc[current], 16).toUpper();
+
+    QString sHex = QString::number(hexSource_p[current], 16).toUpper();
+
     sHex[posInCurrent++] = i64;
     bool bStatus = false;
 
     int number = sHex.toUInt(&bStatus,16);
-    hexSrc[current] = (byte)number;
+
+    ///podmiana src
+    //hexSrc[current] = (byte)number;
+    hexSource_p[current] = (byte)number;
 
     if (posInCurrent == 2)
     {

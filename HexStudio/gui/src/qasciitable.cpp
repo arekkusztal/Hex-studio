@@ -9,9 +9,13 @@ extern int hexFontSize;
 extern unsigned char hexSrc[100];// = "abcdefgkererererererersdfasdfldkg;asfjas;lkfjdsa;lfjasd;lk \
             //asdsadsagsdsgdacxmvn,vnaaaa";
 
+extern char *hexSource_p;
+
 extern int cols;
 
 extern int len;
+
+extern int *flen_p;
 
 extern int shift;
 
@@ -74,14 +78,17 @@ void QASCIITable::paintEvent(QPaintEvent *)
 
 
     QString sHex;
-    unsigned char *hexIterator = hexSrc;
+    /// Podmiana src
+    unsigned char *hexIterator = (unsigned char*) hexSource_p;// hexSrc;
     int ecx = 0;
+
+    hexIterator += shift;
 
     for (int i = 0;i<visRows+1;++i)
     {
         for (int j=0;j<cols;++j)
         {
-            if (++ecx > len - shift)
+            if (++ecx > *flen_p - shift)
                 break;
 
            // sHex = QString::number(*hexIterator++, 16).toUpper();

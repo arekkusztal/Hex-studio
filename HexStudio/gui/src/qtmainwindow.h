@@ -19,7 +19,7 @@ public:
 signals:
 
 public slots:
-
+    void wheelEvent(QWheelEvent *);
 private:
   //  QGridLayout *layout;
 

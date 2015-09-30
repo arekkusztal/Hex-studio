@@ -44,14 +44,15 @@ void MenuPanel::mousePressEvent(QMouseEvent *event)
     {
         y = 3;
         QMessageBox messageBox;
-        messageBox.critical(0,"Error","An error has occured !");
+        messageBox.critical(0,"Error","Not yet implemented !");
         messageBox.setFixedSize(500,200);
     }
     else if (x >= 30 && x <= 60)
     {
         file1Name = QFileDialog::getOpenFileName(this,tr("Open XML File 1"), "/home",
              tr("All files (*.*);;Linux object (*.o);;Windows object (*.obj);;Exe files (*.exe)"));
-        readfile(file1Name.toStdString().c_str());
+        if (file1Name.size() != 0)
+            readfile(file1Name.toStdString().c_str());
     }
     else if (x > 60 && x <= 60 )
         y = 5;

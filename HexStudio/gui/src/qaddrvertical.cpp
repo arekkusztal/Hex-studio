@@ -1,6 +1,8 @@
 #include "qaddrvertical.h"
 
 
+extern int shift;
+
 static int tFontSize = 10;
 
 QAddrVertical::QAddrVertical(QWidget *parent) :
@@ -28,7 +30,7 @@ void QAddrVertical::paintEvent(QPaintEvent *event)
     int b = this->height();
     int visRows = b/quadLen + 2;
 
-    int count = 0;
+    int count = shift;
     for (int i=quadLen*2;i<b+quadLen;i+=quadLen)
     {
         pen.drawLine(0,i-quadLen,a,i-quadLen);

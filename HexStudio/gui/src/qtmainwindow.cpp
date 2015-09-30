@@ -3,6 +3,7 @@
 #include <QLabel>
 #include <QSplitter>
 #include <QTextEdit>
+#include <QTabWidget>
 #include "bus/inc/configurations.h"
 #include "bus/inc/globally.h"
 #include  "bus/src/file.h"
@@ -26,6 +27,12 @@ void GlobalRepaint(int widget)
         tab->repaint();
         addrVertical->repaint();
     }
+    else if (widget == 67)
+    {
+        tab->repaint();
+        addrVertical->repaint();
+        ASCIITable->repaint();
+    }
     //else if (widget == 2)
 
 
@@ -40,6 +47,28 @@ void showMessage(const char *message)
     QMessageBox messageBox;
     messageBox.critical(0,"Error",message);
     messageBox.setFixedSize(500,200);
+}
+
+
+void QtMainWindow::wheelEvent(QWheelEvent *event)
+{
+    if (event->delta()>0)
+    {
+        shift -= 32;
+        if (shift < 0)
+        {
+            shift = 0;
+            goto END;
+        }
+    }
+    else if (shift < *flen_p)
+    {
+        shift += 32;
+    }
+    GlobalRepaint(67);
+
+END:
+    return;
 }
 
 QtMainWindow::QtMainWindow(QWidget *parent) :
@@ -98,13 +127,26 @@ QtMainWindow::QtMainWindow(QWidget *parent) :
 
     ASCIITable->setStyleSheet("border: 1px solid red");
 
+
+    QTabWidget *tabopt = new QTabWidget;
+    tabopt->addTab(splitter,tr("Raw view"));
+    QWidget *wid = new QWidget;
+    tabopt->addTab(wid,tr("fdump"));
+    tabopt->setStyleSheet("QTabBar::tab { width: 100px; }");
+
+
     QList<int> sizes;
     sizes << 20 << 200 << 20 ;
 
     splitter->setSizes(sizes);
     vlayout->addWidget(menuPanel);
-    vlayout->addWidget(splitter);
+    vlayout->addWidget(tabopt);
 
+    //QScrollBar *bar = s
+
+    //vlayout->addWidget(bar);
+
+    //tabopt->addTab()
 
     addrVertical->setFixedWidth(80);
     hLayoutASCII_CTR->setFixedWidth(420);
