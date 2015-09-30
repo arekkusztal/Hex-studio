@@ -9,6 +9,7 @@
 #include "gui/src/qaddrhorizontal2.h"
 #include "gui/src/qaddrvertical.h"
 #include "gui/src/menupanel.h"
+#include "gui/src/qmenupanel2.h"
 
 class QtMainWindow : public QWidget
 {

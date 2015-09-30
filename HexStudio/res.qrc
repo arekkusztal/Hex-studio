@@ -15,5 +15,6 @@
         <file>res/paste_1.png</file>
         <file>res/cut_1.png</file>
         <file>res/copy_1.png</file>
+        <file>res/sections_1.png</file>
     </qresource>
 </RCC>

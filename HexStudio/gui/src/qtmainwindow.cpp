@@ -6,12 +6,13 @@
 #include <QTabWidget>
 #include "bus/inc/configurations.h"
 #include "bus/inc/globally.h"
-#include  "bus/src/file.h"
+#include "bus/src/file.h"
 
 QHexTable *tab;
 QASCIITable *ASCIITable;
 QAddrVertical *addrVertical;
 MenuPanel *menuPanel;
+QMenuPanel2 *menuPanel2;
 
 
 
@@ -104,6 +105,9 @@ QtMainWindow::QtMainWindow(QWidget *parent) :
     menuPanel = new MenuPanel;
     menuPanel->setFixedHeight(30);
 
+    menuPanel2 = new QMenuPanel2;
+    menuPanel2->setFixedHeight(30);
+
     QVBoxLayout *hLayoutTab = new QVBoxLayout;
     hLayoutTab->addWidget(addrHorizontal);
     hLayoutTab->addWidget(tab);
@@ -140,6 +144,7 @@ QtMainWindow::QtMainWindow(QWidget *parent) :
 
     splitter->setSizes(sizes);
     vlayout->addWidget(menuPanel);
+    vlayout->addWidget(menuPanel2);
     vlayout->addWidget(tabopt);
 
     //QScrollBar *bar = s
