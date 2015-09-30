@@ -29,6 +29,7 @@ MenuPanel::MenuPanel(QWidget *parent) :
     img13.load(":res/redo_1.png","PNG");
 
    // setFocusPolicy(Qt::StrongFocus);
+
     repaint();
 
 }

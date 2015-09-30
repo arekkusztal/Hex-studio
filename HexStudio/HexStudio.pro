@@ -9,7 +9,9 @@ SOURCES += \
     gui/src/menupanel.cpp \
     bus/src/filemenager.cpp \
     bus/src/file.cpp \
-    gui/src/qmenupanel2.cpp
+    gui/src/qmenupanel2.cpp \
+    gui/src/qraw.cpp \
+    gui/src/qheadscreen.cpp
 QT += widgets
 
 HEADERS += \
@@ -24,7 +26,9 @@ HEADERS += \
     gui/src/qaddrvertical.h \
     gui/src/menupanel.h \
     bus/src/file.h \
-    gui/src/qmenupanel2.h
+    gui/src/qmenupanel2.h \
+    gui/src/qraw.h \
+    gui/src/qheadscreen.h
 
 RESOURCES += \
     res.qrc

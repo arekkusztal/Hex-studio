@@ -1,5 +1,6 @@
-#ifndef QTMAINWINDOW_H
-#define QTMAINWINDOW_H
+#ifndef QRAW_H
+#define QRAW_H
+
 
 #include <QWidget>
 #include <QGridLayout>
@@ -10,22 +11,17 @@
 #include "gui/src/qaddrvertical.h"
 #include "gui/src/menupanel.h"
 #include "gui/src/qmenupanel2.h"
-#include "gui/src/qraw.h"
 
-class QtMainWindow : public QWidget
+class QRaw : public QWidget
 {
     Q_OBJECT
 public:
-    explicit QtMainWindow(QWidget *parent = 0);
+    explicit QRaw(QWidget *parent = 0);
 
 signals:
 
 public slots:
-    void wheelEvent(QWheelEvent *);
-private:
-  //  QGridLayout *layout;
-
 
 };
 
-#endif // QTMAINWINDOW_H
+#endif // QRAW_H
