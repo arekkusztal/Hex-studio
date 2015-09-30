@@ -6,5 +6,5 @@
 ///
 int len = 1024;
 
-
+int current_file_nr = -1;
 #endif // CONFIGURATIONS_H

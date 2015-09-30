@@ -42,14 +42,7 @@ int selectedByte    = -1;
 ///
 int current         = -1;
 
-unsigned char hexSrc[1024] = "abcdefgkererererererersdfasdfldkg;asfjas;lkfjdsa;lfjasd;lk \
-asdsadsagsdsgdacxmvn,vnaaaagsd2135[oi3b2j5b235b3ihicb= b=3ric= 0ihr=0i 10 1=b1=9buig1ub=9ug \
-asdsadsagsdsgdacxmvn,vnaaaagsd2135[oi3b2j5b235b3ihicb= b=3ric= 0ihr=0i 10 1=b1=9buig1ub=9ug \
-asdsadsagsdsgdacxmvn,vnaaaagsd2135[oi3b2j5b235b3ihicb= b=3ric= 0ihr=0i 10 1=b1=9buig1ub=9ug \
-asdsadsagsdsgdacxmvn,vnaaaagsd2135[oi3b2j5b235b3ihicb= b=3ric= 0ihr=0i 10 1=b1=9buig1ub=9ug \
-asdsadsagsdsgdacxmvn,vnaaaagsd2135[oi3b2j5b235b3ihicb= b=3ric= 0ihr=0i 10 1=b1=9buig1ub=9ug \
-asdsadsagsdsgdacxmvn,vnaaaagsd2135[oi3b2j5b235b3ihicb= b=3ric= 0ihr=0i 10 1=b1=9buig1ub=9ug \
-sadgsdaghio32h083215-3275033  30 5=029 =059 0=9325=091235 03253425hdkhghdgjha;kjhgd;ahtreoir";
+extern unsigned char hexSrc[1024];
 
 int cols = 32;
 

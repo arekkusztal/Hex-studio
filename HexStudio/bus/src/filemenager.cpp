@@ -1,12 +1,15 @@
 #include <fstream>
 #include <list>
+#include <vector>
 #include "file.h"
 
 #define     SECLEN 512
 
-extern std::list<File *> filenames;
+extern std::vector<File *> filenames;
 
-int readfile(char *filename)
+extern void showMessage(const char *message);
+
+int readfile(const char *filename)
 {
     int error = 0;
 
@@ -23,6 +26,7 @@ int readfile(char *filename)
         file->fcontent = new char[file->flen];
         if (!file)
         {
+            showMessage("Error alocation memory for file\n");
             error = -1;
             goto END;
         }
@@ -37,11 +41,13 @@ int readfile(char *filename)
     }
     else
     {
+        showMessage("Error reading the file\n");
         error = -2;
         goto END;
     }
 
-    filenames.push_front(file);
+    filenames.push_back(file);
+
 
 END:
     return error;

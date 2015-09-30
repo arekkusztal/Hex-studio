@@ -6,6 +6,7 @@
 #include <QtGui>
 #include <QHBoxLayout>
 #include <QFileDialog>
+#include <QMessageBox>
 
 class MenuPanel : public QWidget
 {

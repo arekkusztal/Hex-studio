@@ -5,12 +5,15 @@
 #include <QTextEdit>
 #include "bus/inc/configurations.h"
 #include "bus/inc/globally.h"
-
+#include  "bus/src/file.h"
 
 QHexTable *tab;
 QASCIITable *ASCIITable;
 QAddrVertical *addrVertical;
 MenuPanel *menuPanel;
+
+
+
 void GlobalRepaint(int widget)
 {
     if (widget == 0)
@@ -28,9 +31,26 @@ void GlobalRepaint(int widget)
 
 }
 
+///TEST
+///
+extern int readfile(const char *filename);
+
+void showMessage(const char *message)
+{
+    QMessageBox messageBox;
+    messageBox.critical(0,"Error",message);
+    messageBox.setFixedSize(500,200);
+}
+
 QtMainWindow::QtMainWindow(QWidget *parent) :
     QWidget(parent)
 {
+
+    ///TEST
+    readfile("/home/arek67/RD/a.o");
+    flen_p      = &((File*)filenames[0])->flen;
+    hexSource_p =  ((File*)filenames[0])->fcontent;
+    /////////////////////////////////////////
 
     QVBoxLayout *vlayout = new QVBoxLayout;
   //  this->setMinimumSize(1424,768);

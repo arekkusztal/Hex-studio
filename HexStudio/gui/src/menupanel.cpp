@@ -4,7 +4,7 @@
 #include <QImage>
 
 
-extern int readfile(char *filename);
+extern int readfile(const char *filename);
 
 static int tFontSize = 10;
 static int bSize = 30;
@@ -41,12 +41,17 @@ void MenuPanel::mousePressEvent(QMouseEvent *event)
     QString file1Name;
 
     if (x < 30)
+    {
         y = 3;
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","An error has occured !");
+        messageBox.setFixedSize(500,200);
+    }
     else if (x >= 30 && x <= 60)
     {
         file1Name = QFileDialog::getOpenFileName(this,tr("Open XML File 1"), "/home",
              tr("All files (*.*);;Linux object (*.o);;Windows object (*.obj);;Exe files (*.exe)"));
-        readfile((char*)file1Name.toStdString().c_str());
+        readfile(file1Name.toStdString().c_str());
     }
     else if (x > 60 && x <= 60 )
         y = 5;
